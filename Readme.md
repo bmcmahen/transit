@@ -1,7 +1,7 @@
 
 # Transit
 
-  Yet another router. It's basically a combination of a myriad of other routers out there, but to my preference. In practice, it operates much like `visionmedia/page.js` except that it also has hash-based fallbacks, and `out` middleware that runs when a route is left. 
+  So it's yet __another__ router. This is basically a combination of a myraid of other routers out there, but made to my preference. It takes after `visionmedia/page.js`, but it also supports hash-based fallbacks in IE 8 and 9. 
 
   You probably shouldn't use this yet since there aren't tests.
 
@@ -16,23 +16,52 @@
 
 ### #start
 
-Begin listening for path changes
+Begin listening for URL changes. Typically you will call this after specifying all of your routes.
 
 ### #listen(root)
 
-Listen for event clicks call the corresponding routes.
+Active click delegation for paths in `root`. If the path is specified in your router it will push and execute the URL and its functions. 
+
+```javascript
+transit.listen('/');
+transit('/bacon', getBacon);
+```
+
+```html
+<a href='/bacon'>Get Bacon</a>
+```
+
+When Get Bacon is clicked, the getBacon function will run.
 
 ### #push(url)
 
-Navigate to the specified URL.
+Update the URL and add it to the history without executing the specified callbacks.
+
+```javascript
+transit.push('/bacon');
+```
 
 ### #exec(url)
 
-Execute the url functions.
+Execute the specified callbacks for the provided URL without manipulating the URL or adding it to the history.
+
+```javascript
+transit.exec('/bacon');
+```
 
 ### #go(url)
 
-Calls both `#push` and `#execute`. 
+Call both `#push` and `#exec` for the specified url.
+
+```javascript
+transit.go('/bacon');
+```
+
+Alternative, use the shorthand:
+
+```javascript
+transit('/bacon');
+```
 
 
 ## Example
@@ -65,6 +94,7 @@ route.start();
 ## TODO
 
 - Improve middleware to handle errors, pass args, etc.
+- Set base URL
 - TESTS
 
 ## License
