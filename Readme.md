@@ -5,6 +5,7 @@
 
   You probably shouldn't use this yet since there aren't tests.
 
+
 ## Installation
 
   Install with [component(1)](http://component.io):
@@ -14,31 +15,28 @@
 ## API
 
 ```javascript
-var transit = require('transit');
+var route = require('transit');
+route.listen('/');
 
-function getUser(ctx, next){
-  ctx.user = 'ben';
+function myname(ctx, next){
+  ctx.name = ctx.params.first || 'foo';
   next();
 }
 
-function renderBacon(ctx, next){
-  $('body').text(ctx.user + ' likes bacon');
+function lastname(ctx){
+  var lastname = ctx.params.last || 'bar';
+  console.log(ctx.name +' '+ lastname);
 }
 
-function closeBacon(ctx){
-  $('body').empty();
+function age(){
+  console.log('29');
 }
 
-transit('/bacon', getUser, renderBacon).out(closeBacon);
-transit('/saymyname', function(ctx){
-  console.log('say my name!');
-});
+route('/name', myname, lastname);
+route('/name/:first', myname, lastname);
+route('/name/:first/:last', myname, lastname);
 
-// Use link delegation to trigger routes.
-transit.listen('/');
-
-// Start listening for routes
-transit.start();
+route.start();
 ```
 
 ## TODO
