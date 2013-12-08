@@ -19,6 +19,7 @@ function bacon(){
 }
 
 function myname(ctx, next){
+  console.log(ctx);
   ctx.name = ctx.params.first || 'foo';
   next();
 }

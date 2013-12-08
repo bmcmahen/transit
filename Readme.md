@@ -14,6 +14,29 @@
 
 ## API
 
+### #start
+
+Begin listening for path changes
+
+### #listen(root)
+
+Listen for event clicks call the corresponding routes.
+
+### #push(url)
+
+Navigate to the specified URL.
+
+### #exec(url)
+
+Execute the url functions.
+
+### #go(url)
+
+Calls both `#push` and `#execute`. 
+
+
+## Example
+
 ```javascript
 var route = require('transit');
 route.listen('/');
