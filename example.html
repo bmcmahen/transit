@@ -5,10 +5,9 @@
 </head>
 <body>
 
-<a href='/myname'>say my name</a>
-<a href='/age'>age</a>
-<a href='/age/again'>age again </a>
-<a href='/sex/male'>i'm a male</a>
+<a href='/name'>name</a>
+<a href='/name/ben'>ben</a>
+<a href='/name/ben/mcmahen'>ben mcmahen</a>
 
 <script src='build/build.js'></script>
 <script>
@@ -20,35 +19,23 @@ function bacon(){
 }
 
 function myname(ctx, next){
-  console.log('foo');
-  ctx.foo = 'bar';
-  setTimeout(function(){
-    next();
-  }, 2000);
+  ctx.name = ctx.params.first || 'foo';
+  next();
 }
 
 function lastname(ctx, next){
-  console.log(ctx.foo);
+  var lastname = ctx.params.last || 'bar';
+  console.log(ctx.name +' '+ lastname);
 }
 
 function age(){
   console.log('29');
 }
 
-route('*', function(ctx){
-  console.log('i run all');
-});
+route('/name', myname, lastname);
+route('/name/:first', myname, lastname);
+route('/name/:first/:last', myname, lastname);
 
-route('/age/again', function(ctx){
-  console.log('age again');
-});
-
-route('/sex/:gender', function(ctx){
-  console.log('sex', ctx.params.gender);
-});
-
-route('/myname', myname, lastname).out(age);
-route('/age', age);
 route.start();
 
 </script>
