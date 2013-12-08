@@ -32,6 +32,11 @@ function age(){
   console.log('29');
 }
 
+function home(){
+  console.log('we are home!');
+}
+
+route('/', home);
 route('/name', myname, lastname);
 route('/name/:first', myname, lastname);
 route('/name/:first/:last', myname, lastname);
