@@ -51,13 +51,13 @@ function lastname(ctx){
   console.log(ctx.name +' '+ lastname);
 }
 
-function age(){
-  console.log('29');
+function after(ctx){
+  console.log('this is a lame example.');
 }
 
 route('/name', myname, lastname);
 route('/name/:first', myname, lastname);
-route('/name/:first/:last', myname, lastname);
+route('/name/:first/:last', myname, lastname).out(after);
 
 route.start();
 ```
