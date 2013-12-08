@@ -6,14 +6,17 @@
 <body>
 
 <a href='/myname'>say my name</a>
+<a href='/age'>age</a>
+<a href='/age/again'>age again </a>
+<a href='/sex/male'>i'm a male</a>
 
 <script src='build/build.js'></script>
 <script>
-var route = require('ben-router');
+var route = require('transit');
 route.listen('/');
 
 function bacon(){
-  console.log('hello');
+  console.log('I run every time.');
 }
 
 function myname(ctx, next){
@@ -32,7 +35,18 @@ function age(){
   console.log('29');
 }
 
-route('/', bacon);
+route('*', function(ctx){
+  console.log('i run all');
+});
+
+route('/age/again', function(ctx){
+  console.log('age again');
+});
+
+route('/sex/:gender', function(ctx){
+  console.log('sex', ctx.params.gender);
+});
+
 route('/myname', myname, lastname).out(age);
 route('/age', age);
 route.start();

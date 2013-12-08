@@ -12,7 +12,7 @@
     "component/url": "*",
     "yields/stop": "*",
     "yields/prevent": "*",
-    "segmentio/ware": "*"
+    "yields/merge": "*"
   },
   "development": {
     "visionmedia/debug": "*"
@@ -25,6 +25,7 @@
     "lib/html5.js",
     "lib/hash.js",
     "lib/conversion.js",
-    "lib/context.js"
+    "lib/context.js",
+    "lib/route.js"
   ]
 }
