@@ -11,8 +11,7 @@
     "component/querystring": "*",
     "component/url": "*",
     "yields/stop": "*",
-    "yields/prevent": "*",
-    "yields/merge": "*"
+    "yields/prevent": "*"
   },
   "development": {
     "visionmedia/debug": "*"
