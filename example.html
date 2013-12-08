@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+
+<a href='/myname'>say my name</a>
+
+<script src='build/build.js'></script>
+<script>
+var route = require('ben-router');
+route.listen('/');
+
+function bacon(){
+  console.log('hello');
+}
+
+function myname(ctx, next){
+  console.log('foo');
+  ctx.foo = 'bar';
+  setTimeout(function(){
+    next();
+  }, 2000);
+}
+
+function lastname(ctx, next){
+  console.log(ctx.foo);
+}
+
+function age(){
+  console.log('29');
+}
+
+route('/', bacon);
+route('/myname', myname, lastname).out(age);
+route('/age', age);
+route.start();
+
+</script>
+</body>
+</html>

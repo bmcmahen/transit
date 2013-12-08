@@ -1,0 +1,30 @@
+{
+  "name": "transit",
+  "repo": "bmcmahen/transit",
+  "description": "yet another router",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "component/emitter": "*",
+    "component/link-delegate": "*",
+    "component/path-to-regexp": "*",
+    "component/querystring": "*",
+    "component/url": "*",
+    "yields/stop": "*",
+    "yields/prevent": "*",
+    "segmentio/ware": "*"
+  },
+  "development": {
+    "visionmedia/debug": "*"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js",
+    "lib/index.js",
+    "lib/html5.js",
+    "lib/hash.js",
+    "lib/conversion.js",
+    "lib/context.js"
+  ]
+}
