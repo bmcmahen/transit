@@ -9,9 +9,9 @@ var hbs = require('hbs');
 
 var app = express()
   .use(express.static(__dirname))
-  .set('views', __dirname)
+  .set('views', __dirname + '/test')
   .engine('html', hbs.__express)
   .get('*', function (req, res) {
-    res.render('example.html');
+    res.render('index.html');
   })
   .listen(7777);

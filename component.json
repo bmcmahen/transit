@@ -1,7 +1,7 @@
 {
   "name": "transit",
   "repo": "bmcmahen/transit",
-  "description": "yet another router",
+  "description": "yet another client-side router",
   "version": "0.0.1",
   "keywords": [],
   "dependencies": {
@@ -14,7 +14,9 @@
     "yields/prevent": "*"
   },
   "development": {
-    "visionmedia/debug": "*"
+    "visionmedia/mocha": "*",
+    "component/assert": "*",
+    "ianstormtaylor/trigger-event": "*"
   },
   "license": "MIT",
   "main": "index.js",

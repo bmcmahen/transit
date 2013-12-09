@@ -1,0 +1,21 @@
+<html>
+<head>
+  <title>router-tests</title>
+  <link rel="stylesheet" href="/build/build.css" />
+  <script src="/build/build.js"></script>
+  <script>
+    var router = require('transit');
+  </script>
+  <script>require('mocha')</script>
+  <script>mocha.setup({ ui: 'bdd' })</script>
+</head>
+<body>
+  <div id='coverage'></div>
+  <div id="mocha"></div>
+  <a id="link" href="/click"></a>
+  <script src='/test/index.js'></script>
+  <script src='/test/hash.js'></script>
+  <script src='/test/convert.js'></script>
+  <script>mocha.run()</script>
+</body>
+</html>
