@@ -3,8 +3,6 @@
 
   So it's yet __another__ router. This is basically a combination of a myraid of other routers out there, but made to my preference. It takes after `visionmedia/page.js`, but it also supports hash-based fallbacks in IE 8 and 9. 
 
-  You probably shouldn't use this yet since there aren't tests.
-
 
 ## Installation
 
@@ -95,7 +93,13 @@ route.start();
 
 - Improve middleware to handle errors, pass args, etc.
 - Set base URL
-- TESTS
+- more tests
+
+## Running Tests
+
+  $ component build -d
+  $ node server
+  $ http://localhost:7777
 
 ## License
 
