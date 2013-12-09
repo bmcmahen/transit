@@ -1,7 +1,7 @@
 
 # Transit
 
-  So it's yet __another__ router. This is basically a combination of a myraid of other routers out there, but made to my preference. It takes after `visionmedia/page.js`, but it also supports hash-based fallbacks in IE 8 and 9. 
+  So it's yet _another_ router. This is basically a combination of a myraid of other routers out there, but made to my preference. It takes after `visionmedia/page.js`, but it also supports hash-based fallbacks in IE 8 and 9. 
 
 
 ## Installation
@@ -97,9 +97,9 @@ route.start();
 
 ## Running Tests
 
-  $ component build -d
-  $ node server
-  $ http://localhost:7777
+    $ component build -d
+    $ node server
+    $ http://localhost:7777
 
 ## License
 
