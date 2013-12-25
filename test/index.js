@@ -114,6 +114,7 @@ describe('transit - pushState', function () {
       });
       transit.exec('/middleware');
     });
+
   });
 
 
@@ -131,6 +132,8 @@ describe('transit - pushState', function () {
       transit.go('/out');
       transit.go('/in');
     });
+
+    // check entering route, leaving route, entering route.
   });
 
   /** CHECK **/

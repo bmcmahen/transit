@@ -5,14 +5,17 @@
 </head>
 <body>
 
-<a href='/name'>name</a>
+
+<a href='/name'>
+<div>name</div>
+</a>
+<a href='/dog'>dog?</a>
 <a href='/name/ben'>ben</a>
 <a href='/name/ben/mcmahen'>ben mcmahen</a>
 
 <script src='build/build.js'></script>
 <script>
 var route = require('transit');
-route.listen('/');
 
 function bacon(){
   console.log('I run every time.');
@@ -43,6 +46,8 @@ route('/name/:first', myname, lastname);
 route('/name/:first/:last', myname, lastname);
 
 route.start();
+route.listen('/');
+
 
 </script>
 </body>
