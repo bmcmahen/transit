@@ -97,9 +97,8 @@ route.start();
 
 ## Running Tests
 
-    $ component build -d
-    $ node server
-    $ http://localhost:7777
+    $ npm install component-test -g
+    $ component test
 
 ## License
 
