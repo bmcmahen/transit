@@ -17,29 +17,39 @@
 <script>
 var route = require('transit');
 
-function bacon(){
-  console.log('I run every time.');
-}
-
 function myname(ctx, next){
-  console.log(ctx);
+  console.log('NAME');
   ctx.name = ctx.params.first || 'foo';
   next();
 }
 
 function lastname(ctx, next){
   var lastname = ctx.params.last || 'bar';
-  console.log(ctx.name +' '+ lastname);
+  console.log('LAST NAME', ctx.name +' '+ lastname);
 }
 
 function age(){
-  console.log('29');
+  console.log('AGE');
 }
 
 function home(){
-  console.log('we are home!');
+  console.log('HOME');
 }
 
+function allRoutes(ctx){
+  console.log('ALL');
+  ctx.bacon = 'tasty';
+}
+
+function allOut(ctx){
+  console.log('NAME OUT', ctx.bacon);
+}
+
+route('*', allRoutes);
+route('/name/*', function(ctx){
+  console.log('ALL NAMES', ctx.bacon);
+  ctx.super = 'duper';
+}).out(allOut);
 route('/', home);
 route('/name', myname, lastname);
 route('/name/:first', myname, lastname);
