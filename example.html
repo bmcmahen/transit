@@ -41,15 +41,20 @@ function allRoutes(ctx){
   ctx.bacon = 'tasty';
 }
 
-function allOut(ctx){
+function allOut(ctx, next){
   console.log('NAME OUT', ctx.bacon);
+  next('something');
+}
+
+function out2(ctx){
+  console.log('Name out 2', ctx.bacon);
 }
 
 route('*', allRoutes);
 route('/name/*', function(ctx){
   console.log('ALL NAMES', ctx.bacon);
   ctx.super = 'duper';
-}).out(allOut);
+}).out(allOut, out2);
 route('/', home);
 route('/name', myname, lastname);
 route('/name/:first', myname, lastname);
