@@ -1,7 +1,7 @@
 
 # Transit
 
-  So it's yet _another_ router. This is basically a combination of a myraid of other routers out there, but made to my preference. It takes after `visionmedia/page.js`, but it also supports hash-based fallbacks in IE 8 and 9. 
+  Transit is a simple router, inspired by `page.js`, but made to my preference. It also has hash-based fallbacks because most of us still need to support IE 9. 
 
 
 ## Installation
@@ -12,11 +12,11 @@
 
 ## API
 
-### #start
+### transit.start()
 
 Begin listening for URL changes. Typically you will call this after specifying all of your routes.
 
-### #listen(root)
+### transit.listen(root)
 
 Active click delegation for paths in `root`. If the path is specified in your router it will push and execute the URL and its functions. 
 
@@ -31,7 +31,7 @@ transit('/bacon', getBacon);
 
 When Get Bacon is clicked, the getBacon function will run.
 
-### #push(url)
+### transit.push(url)
 
 Update the URL and add it to the history without executing the specified callbacks.
 
@@ -39,7 +39,7 @@ Update the URL and add it to the history without executing the specified callbac
 transit.push('/bacon');
 ```
 
-### #exec(url)
+### transit.exec(url)
 
 Execute the specified callbacks for the provided URL without manipulating the URL or adding it to the history.
 
@@ -47,7 +47,7 @@ Execute the specified callbacks for the provided URL without manipulating the UR
 transit.exec('/bacon');
 ```
 
-### #go(url)
+### transit.go(url)
 
 Call both `#push` and `#exec` for the specified url.
 
@@ -66,26 +66,34 @@ transit('/bacon');
 
 ```javascript
 var route = require('transit');
-route.listen('/');
 
-function myname(ctx, next){
-  ctx.name = ctx.params.first || 'foo';
+function allRoutes(ctx, next){
+  console.log('I run on all routes');
+  ctx.bacon = 'tasty';
   next();
 }
 
-function lastname(ctx){
+function myname(ctx, next){
+  ctx.name = ctx.params.first || 'foo';
+  console.log('bacon is', ctx.bacon || 'not tasty');
+  next();
+}
+
+function lastname(ctx, next){
   var lastname = ctx.params.last || 'bar';
   console.log(ctx.name +' '+ lastname);
 }
 
-function after(ctx){
-  console.log('this is a lame example.');
+function after(ctx, next){
+  console.log('I run when the route is left');
 }
 
+route('*', allRoutes);
 route('/name', myname, lastname);
 route('/name/:first', myname, lastname);
 route('/name/:first/:last', myname, lastname).out(after);
 
+route.listen('/');
 route.start();
 ```
 
