@@ -10,6 +10,8 @@
 
     $ component install bmcmahen/transit
 
+  Or use the standalone build located in `dist/transit.js` under the global name `transit`.
+
 ## API
 
 ### transit.start()
