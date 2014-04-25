@@ -98,6 +98,7 @@ route.start();
 ## Running Tests
 
     $ npm install component-test -g
+    $ component build -d
     $ component test
 
 ## License
