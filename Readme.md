@@ -105,14 +105,12 @@ route.start();
 
 ## TODO
 
-- Improve middleware to handle errors, pass args, etc.
-- more tests
+- TESTS
 
 ## Running Tests
 
-    $ npm install component-test -g
-    $ component build -d
-    $ component test
+    $ npm install duo-test -g
+    $ make test-browser
 
 ## License
 
