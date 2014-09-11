@@ -2,7 +2,7 @@
   "name": "transit",
   "repo": "bmcmahen/transit",
   "description": "yet another client-side router",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "keywords": ["router"],
   "dependencies": {
     "component/emitter": "^1.1.3",
