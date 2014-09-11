@@ -99,7 +99,7 @@ route('/name', myname, lastname);
 route('/name/:first', myname, lastname);
 route('/name/:first/:last', myname, lastname).out(after);
 
-route.listen('/');
+route.listen();
 route.start();
 ```
 
