@@ -1,12 +1,11 @@
 describe('transit - pushState', function () {
 
-  var transit = require('transit');
-  var assert = require('assert');
+  var transit = require('../index');
+  var assert = require('component/assert');
   var noop = function(){};
-  var trigger = require('trigger-event');
-  var history = require('transit/lib/html5.js');
-  var urlUtil = require('url');
-
+  var trigger = require('ianstormtaylor/trigger-event');
+  var history = require('../lib/html5.js');
+  var urlUtil = require('component/url');
 
 
   afterEach(function(){
@@ -16,14 +15,13 @@ describe('transit - pushState', function () {
 
   describe('#start', function(){
 
-    transit.start();
-
     it('should bind to popstate', function(done){
       history.push('/popstate-one');
       history.push('/popstate-two');
       transit('/popstate-one', function(){
         done();
       });
+      transit.start();
       setTimeout(window.history.go(-1), 500);
     });
 
@@ -145,5 +143,9 @@ describe('transit - pushState', function () {
       trigger(document.getElementById('link'), 'click');
     })
   });
-  
+
 });
+
+require('./hash');
+require('./convert');
+require('./context');

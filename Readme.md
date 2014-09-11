@@ -1,16 +1,20 @@
 
 # Transit
 
-  Transit is a simple router, inspired by `page.js`, but made to my preference. It also has hash-based fallbacks because most of us still need to support IE 9. 
+  Transit is a simple router, inspired by `page.js`, but made to my preference. It also has hash-based fallbacks because most of us still need to support IE 9.
 
 
 ## Installation
 
-  Install with [component(1)](http://component.io):
+  Install with [component(1)](http://component.io)
 
     $ component install bmcmahen/transit
 
-  Or use the standalone build located in `dist/transit.js` under the global name `transit`.
+  Or [Duo](http://github.com/duojs/duo)
+
+  ```javascript
+  var transit = require('bmcmahen/transit');
+  ```
 
 ## API
 
@@ -18,12 +22,12 @@
 
 Begin listening for URL changes. Typically you will call this after specifying all of your routes.
 
-### transit.listen(root)
+### transit.listen()
 
-Active click delegation for paths in `root`. If the path is specified in your router it will push and execute the URL and its functions. 
+Active click delegation. If the path is specified in your router it will push and execute the URL and its functions.
 
 ```javascript
-transit.listen('/');
+transit.listen();
 transit('/bacon', getBacon);
 ```
 
@@ -102,7 +106,6 @@ route.start();
 ## TODO
 
 - Improve middleware to handle errors, pass args, etc.
-- Set base URL
 - more tests
 
 ## Running Tests

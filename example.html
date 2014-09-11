@@ -12,10 +12,11 @@
 <a href='/dog'>dog?</a>
 <a href='/name/ben'>ben</a>
 <a href='/name/ben/mcmahen'>ben mcmahen</a>
+<a href='http://www.something.com/dog'> outside link </a>
 
 <script src='build/build.js'></script>
 <script>
-var route = require('transit');
+var route = transit;
 
 function myname(ctx, next){
   console.log('NAME');

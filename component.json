@@ -2,21 +2,14 @@
   "name": "transit",
   "repo": "bmcmahen/transit",
   "description": "yet another client-side router",
-  "version": "0.2.1",
-  "keywords": [],
+  "version": "0.3.0",
+  "keywords": ["router"],
   "dependencies": {
-    "component/emitter": "*",
-    "component/link-delegate": "*",
-    "component/path-to-regexp": "*",
-    "component/querystring": "*",
-    "component/url": "*",
-    "yields/stop": "*",
-    "yields/prevent": "*"
-  },
-  "development": {
-    "visionmedia/mocha": "*",
-    "component/assert": "*",
-    "ianstormtaylor/trigger-event": "*"
+    "component/emitter": "^1.1.3",
+    "pillarjs/path-to-regexp": "^1.0.0",
+    "component/querystring": "^1.3.1",
+    "component/delegate": "^0.2.3",
+    "component/url": "^0.1.0"
   },
   "license": "MIT",
   "main": "index.js",

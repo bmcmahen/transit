@@ -1,9 +1,9 @@
 
 describe('Context', function () {
 
-  var assert = require('assert');
-  var history = require('history');
-  var Context = require('router').Context;
+  var assert = require('component/assert');
+  var history = require('component/history');
+  var Context = require('../index').Context;
 
   afterEach(function () {
     history.replace('/');

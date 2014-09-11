@@ -1,9 +1,9 @@
 describe('Conversion.js', function () {
 
-  var assert = require('assert');
+  var assert = require('component/assert');
   var noop = function(){};
-  var convert = require('transit/lib/conversion.js');
-  var urlUtil = require('url');
+  var convert = require('../lib/conversion.js');
+  var urlUtil = require('component/url');
 
 
   describe('#hashToUrl', function(){
@@ -35,5 +35,5 @@ describe('Conversion.js', function () {
 
 
 
-  
+
 });
